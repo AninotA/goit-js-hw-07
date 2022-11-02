@@ -25,6 +25,8 @@ function createMarkUp(galleryItems) {
     })
     .join("");
 }
+
+
 let instance = "";
 function onClick(event) {
   event.preventDefault();
