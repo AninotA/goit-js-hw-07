@@ -5,26 +5,27 @@ console.log(galleryItems);
 console.log(basicLightbox);
 
 const imgList = document.querySelector(".gallery");
-const markup = createMarkUp(galleryItems);
 
-imgList.innerHTML = markup;
+
+// imgList.innerHTML = markup;
 
 imgList.addEventListener("click", onClick);
 
-function createMarkUp(galleryItems) {
-  return galleryItems
-    .map((item) => {
-      return `<div class ="gallery__item">
-        <a class="gallery__link" href="${item.original}">
-        <img class="gallery__image" 
-        src="${item.preview}"
-        data-source="${item.original}"
-        alt="${item.description}"/>
-        </a>
-        </div>`;
-    })
-    .join("");
-}
+const createMarkup = galleryItems.map(({ preview, original, description }) => 
+`<div class ="gallery__item">
+<a class="gallery__link" href="${original}">
+<img class="gallery__image" 
+src="${preview}"
+data-source="${original}"
+alt="${description}"/>
+</a>
+</div>`) 
+ 
+imgList.insertAdjacentHTML('beforeend', createMarkup.join(''))
+    
+
+  
+
 
 
 let instance = "";
