@@ -10,17 +10,13 @@ imgList.addEventListener("click", onClick);
 const createMarkup = galleryItems.map(
   ({ preview, original, description }) =>
     `<div class ="gallery__item">
-<a class="gallery__link" href="${original}">
-<img class="gallery__image" 
-src="${preview}"
-data-source="${original}"
-alt="${description}"/>
-</a>
+    <a class="gallery__item" href="${original}">
+    <img class="gallery__image" src="${preview}" alt="${description}" />
+  </a>
 </div>`
 );
 
 imgList.insertAdjacentHTML("beforeend", createMarkup.join(""));
-
 
 function onClick(event) {
   event.preventDefault();
@@ -30,7 +26,10 @@ function onClick(event) {
 //   /* options */
 // });
 
-imgList = new SimpleLightbox('.gallery a');
-imgList.on('show.simplelightbox', function () {
-	// do something…
+let gallery = new SimpleLightbox(".gallery a", {
+  captions: true,
+  captionDelay: 250,
+  captionSelector: "img",
+  captionsData: "alt",
+  captionPosition: "bottom",
 });
