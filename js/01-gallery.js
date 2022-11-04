@@ -5,7 +5,8 @@ console.log(galleryItems);
 console.log(basicLightbox);
 
 const imgList = document.querySelector(".gallery");
-
+// const newGallery = createElements(galleryItems);
+// imgList.innerHTML = newGallery;
 
 // imgList.innerHTML = markup;
 
@@ -21,8 +22,7 @@ alt="${description}"/>
 </a>
 </div>`) 
  
-imgList.insertAdjacentHTML('beforeend', createMarkup.join(''))
-    
+imgList.insertAdjacentHTML('beforeend', createMarkup.join('')) 
 
   
 
@@ -42,3 +42,4 @@ function onEscapeCloseModal(evt) {
     document.removeEventListener("keydown", onEscapeCloseModal);
   }
 }
+
