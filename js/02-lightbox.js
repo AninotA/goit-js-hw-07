@@ -5,22 +5,22 @@ console.log(galleryItems);
 
 const imgList = document.querySelector(".gallery");
 
-imgList.addEventListener("click", onClick);
+// imgList.addEventListener("click", onClick);
 
 const createMarkup = galleryItems.map(
   ({ preview, original, description }) =>
-    `<div class ="gallery__item">
+    `<li class ="gallery__item">
     <a class="gallery__item" href="${original}">
     <img class="gallery__image" src="${preview}" alt="${description}" />
   </a>
-</div>`
+</li>`
 );
 
 imgList.insertAdjacentHTML("beforeend", createMarkup.join(""));
 
-function onClick(event) {
-  event.preventDefault();
-}
+// function onClick(event) {
+//   event.preventDefault();
+// }
 
 // new SimpleLightbox(".some-element a", {
 //   /* options */
